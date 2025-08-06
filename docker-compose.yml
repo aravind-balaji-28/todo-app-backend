@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      - PORT=${PORT}
+      - MONGO_URI=${MONGO_URI}
+    depends_on:
+      - mongo
+    networks:
+      - shared
+    restart: unless-stopped          # Auto restart unless stopped manually
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db         # Use named volume for data persistence
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin   # Add username for security
+      MONGO_INITDB_ROOT_PASSWORD: secret       # Add password for security
+    networks:
+      - shared
+    restart: unless-stopped
+
+volumes:
+  mongo-data:
+
+networks:
+  shared:
+    driver: bridge

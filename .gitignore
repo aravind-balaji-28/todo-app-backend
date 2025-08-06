@@ -14,10 +14,6 @@ coverage/
 # Optional npm cache directory
 .npm/
 
-# dotenv environment variables
-.env
-.env.*.local
-
 # Logs
 logs/
 *.log

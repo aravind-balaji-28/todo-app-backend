@@ -15,9 +15,9 @@ services:
     restart: unless-stopped          # Auto restart unless stopped manually
 
   mongo:
-    image: mongo:latest
+    image: mongo:6
     ports:
-      - "27017:27017"
+      - "27018:27017"
     volumes:
       - mongo-data:/data/db         # Use named volume for data persistence
     environment:

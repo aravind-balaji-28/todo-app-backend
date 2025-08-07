@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function (req, res, next) {
-  res.json({ status: true, version: 10 })
+  res.json({ status: true, version: 12 })
 });
 
 module.exports = router;

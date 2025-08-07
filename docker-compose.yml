@@ -15,7 +15,7 @@ services:
     restart: unless-stopped          # Auto restart unless stopped manually
 
   mongo:
-    image: mongo:6
+    image: mongo:latest
     ports:
       - "27018:27017"
     volumes:

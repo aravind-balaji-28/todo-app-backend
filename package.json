@@ -1,7 +1,9 @@
 {
-  "name": "backend",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@aravind-balaji-28/todo-app-backend",
+  "version": "1.0.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "start": "node ./bin/www"
   },

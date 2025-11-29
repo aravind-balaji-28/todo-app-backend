@@ -9,6 +9,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();    
 const taskRoutes = require('./routes/taskRoutes.js');
+const logsRoutes = require('./routes/logsRoutes.js');
 const app = express();
   
 mongoose.connect(process.env.MONGO_URI, {
@@ -31,7 +32,7 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/tasks', taskRoutes);
-
+app.use('/logs',logsRoutes)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

@@ -4,11 +4,13 @@ const moment = require("moment");
 exports.S_loginHistory = async (req, res) => {
   try {
     const start = moment(); // start time
-    const limit = 1000000;
+    const limit = 100;
     let query = `SELECT * FROM todo_logs LEFT JOIN todo_level ON todo_logs.id = todo_level.id LIMIT ${limit}`;
     let response = await db.dbConnection(query);
-
-    const end = moment(); 
+    const updateLevelAmountQuery = `UPDATE todo_level SET amount = '10.9273' WHERE todo_level.id = 2;`;
+    let responseUpdate = await db.dbConnection(updateLevelAmountQuery);
+    console.log(responseUpdate, "responseUpdate");
+    const end = moment();
 
     const diffMs = end.diff(start);
 
@@ -31,10 +33,13 @@ exports.P_loginHistory = async (req, res) => {
   try {
     const start = moment(); // start time
 
-    const limit = 1000000;
+    const limit = 100;
     let query = `SELECT * FROM todo_logs LEFT JOIN todo_level ON todo_logs.id = todo_level.id LIMIT ${limit}`;
     let response = await dbP.dbConnection(query);
-    const end = moment(); 
+       const updateLevelAmountQuery = `UPDATE todo_level SET amount = '10.9273' WHERE todo_level.id = 2;`;
+    let responseUpdate = await dbP.dbConnection(updateLevelAmountQuery);
+    console.log(responseUpdate, "responseUpdate");
+    const end = moment();
 
     const diffMs = end.diff(start);
 
